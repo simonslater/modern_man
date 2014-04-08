@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="en">
+ <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="css/interview.css" />
+    <title>Modern Man's Manual | <%=@name%></title>   
+</head>
+<body>
+
+<%=@source%>
+
+<div id='links'>
+<%=page_sections_drop%>
+</div>
+
+<div id="letter_text">
+<div class="hi"><div class="cornsilk"><center><h2><%=@name.upcase%></div></div></br></center>
+	<div class="cornsilk"><h3><%=@questions.first.interviewer%>  Interviews You.</h3></div>
+	
+	<%@questions.each do |q| %>
+	<div class='interviewer' style=<%="background-image:url('#{grab_image('kim+kardashian')}');"%>>
+	<%= "<br><b>#{q.interviewer}: #{q.tweet}</b><br>"%></div>
+	<% q.responses.each do |r|%>
+	<div class='responder' style=<%="background-image:url('#{grab_image('kim+kardashian')}');"%>><%= "<br><b>#{r.name}: </b>#{r.response}<br></div>" %>
+	<%end%>
+		<div class='form'><form action="/post_six" method="post">
+		<br><label><b>name:</b></label>
+		<input type="text" placeholder="name" name="name" />  
+		<label><b>answer:</b></label> 
+		<input type="text" placeholder="your answer here" name="response" />
+		 <input type="hidden" name="question_id" value=<%="#{q.id}"%> />
+		 <input type="submit" value= "Respond" />
+		</form> </div>
+		<%end%>
+</div>
+</body>
+</html>

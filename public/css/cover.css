@@ -1,0 +1,222 @@
+body { 
+	   
+	    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  		font-weight: normal;
+  		font-style: normal;
+  		background-attachment:fixed;
+      line-height: 1;
+      width:95%;
+      overflow-y: hidden;
+      margin:0;
+      padding:0;
+       position: relative;
+  		cursor: red;
+	 }
+
+#container
+{
+     top:0;
+     max-height:10px;
+    width:100%;
+    position:absolute;
+}
+
+#video {
+  top: 25%;
+  width:  300px;
+  height: 300px;
+
+}
+
+#image
+{    
+     
+    transform:rotate(5deg);
+    -ms-transform:rotate(5deg); /* IE 9 */
+    -webkit-transform:rotate(5deg); /* Safari and Chrome */
+    position:fixed;
+    top:0%;
+    left:0%;
+    margin:0;
+    z-index:3;
+    
+}
+
+#text a
+{
+    position:fixed; 
+    width:100%;
+    height:100%;
+    max-height:50%;
+    margin-left:5%;
+    z-index:1;  
+    color:Yellow;
+    font-size:50px;
+    font-weight:bold;
+}
+
+#links a
+{
+    
+    width:100%;
+    height:100%;
+    z-index:5;
+    top:0;
+    position:relative;  
+    color:OrangeRed;
+    font-size:75px;
+    font-weight:bold;
+}
+
+a.one:link {opacity:0.5; text-decoration: none; }
+a.one:hover {opacity:0.8; text-decoration: none; }
+
+a.two:link {opacity:0.7; text-decoration: none; }
+a.two:hover {opacity:1.0; text-decoration: none; }
+
+#tweet
+{
+width:100%;
+font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+color:LightCyan;
+z-index:2;   
+opacity:1;
+top:0;  
+position:fixed;
+font-size:20px;
+animation:tweetScroll 120s infinite;
+-webkit-animation:tweetScroll 120s infinite; /*Safari and Chrome*/
+}
+
+@keyframes tweetScroll 
+{
+from {
+       top:0%; 
+       opacity:1;
+     }
+to {
+      top: -900%;  
+      opacity:1;
+    }
+}
+@-webkit-keyframes tweetScroll /*Safari and Chrome*/
+{
+from {
+        top:0%; 
+        opacity:1;
+        
+      }
+to    {
+        top:-900%; 
+        opacity:1;
+       
+      }
+}
+
+#table
+{
+  display:table;
+  postion:relative;
+}
+
+#table_row{
+  display:table-row;
+}
+
+#table_cell{
+  display:table-cell;
+  opacity:.6;
+  /*padding:50px;*/
+}
+
+/* Shapes*/
+
+
+
+
+.square{
+    -moz-animation:square 10s infinite;
+    -webkit-animation:square 10s infinite;
+     animation:square 10s infinite;
+     width:50px; 
+     height:50px;  
+     background:magenta;
+
+}
+
+
+@-webkit-keyframes square {
+  
+  0% {
+    top:0;
+    left:0;
+    background:magenta;
+  }
+  
+  25% {
+    top:300px;
+    left:0;
+    background:orange;
+  }
+  
+  50% {
+    top:300px;
+    left:600px;
+    background:yellow;
+  }
+  
+  75% {
+    top:0;
+    left:600px;
+    background:red;
+  }
+  
+}
+
+@-moz-keyframes square {
+  
+  0% {
+    top:0;
+    left:0;
+    background:blue;
+  }
+  
+  25% {
+    top:300px;
+    left:0;
+    background:red;
+  }
+  
+  50% {
+    top:300px;
+    left:600px;
+    background:green;
+  }
+  
+  75% {
+    top:0;
+    left:600px;
+    background:yellow;
+  }
+  
+}
+
+.rotate {
+
+/* Safari */
+-webkit-transform: rotate(-90deg);
+
+/* Firefox */
+-moz-transform: rotate(-90deg);
+
+/* IE */
+-ms-transform: rotate(-90deg);
+
+/* Opera */
+-o-transform: rotate(-90deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+

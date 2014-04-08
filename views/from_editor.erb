@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="en">
+ <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/letter.css" />
+    <title>Modern Man Manual | <%=@name%></title>   
+</head>
+<body>
+
+<%=@source%>
+
+<div id='links'>
+<%=page_sections_drop%>
+</div>
+
+<div id="letter_text">
+<center><div class="hi"><div class="cornsilk"><%=@name.upcase%></div></div></br></center>
+<div class="cornsilk">
+<img src=<%=@editor_image%> class="textwrap" height="200" width="200"><p><br><br>Dear Reader,<br><br><%=@content%></p>
+<b><br>-Yours Truly,<br>
+DJ Alex St. Cloud<br>
+Editor in Chief<br>
+alex@modernmanmanual.com</b>
+</div>
+	</body>
+</html>

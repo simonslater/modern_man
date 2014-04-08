@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" lang="en">
+ <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/art.css" />
+    <title>Modern Man Manual | <%=@name%></title>   
+</head>
+<body>
+	
+<%=@source%>
+
+<div id='links'>
+<%=page_sections_drop%>
+</div>
+
+<div id="letter_text">
+<center><div class="hi"><div class="cornsilk"><%=@name.upcase%></div></div></br></center>
+<div class="cornsilk" style="height:640px; width:480px">
+
+	<%= "<div class='holder' style='background-image: url(#{@background_image});'>"%>
+	<%="<img class='imagemask' style='height:100%; 
+									  width:100%; mask: url(#{@mask}) top left cover;
+  									 -webkit-mask: url(#{@mask}) top left / cover;
+ 									 -o-mask: url(#{@mask}) top left / cover;
+  									-ms-mask: url(#{@mask}) top left / cover;' src='#{@background_image2}'>"%>
+	</div>
+	</div>
+	</body>
+	
+</html>

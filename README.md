@@ -1,4 +1,4 @@
-modern_man
-==========
+modern_man_manual
+=================
 
-modern_man
+Repository for the 1584 Institute of Advanced Research Modern Man Manual

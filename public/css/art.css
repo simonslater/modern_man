@@ -1,0 +1,112 @@
+@font-face {
+  font-family:'AlwaysForever';
+  src: url('/public/fonts/alwaysforever.ttf')format('truetype');
+}
+
+body { 
+
+	 }
+
+.hi {    
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+    transform:rotate(3deg);
+    -ms-transform:rotate(3deg); /* IE 9 */
+    -webkit-transform:rotate(3deg); /* Safari and Chrome */
+    letter-spacing:5px;
+    font-size: 35px;
+    color: LightBlue;
+    opacity:1;
+   }
+
+.cornsilk{
+  background-color: Cornsilk;
+}
+
+.textwrap {
+  float: left;
+  margin: 10px;
+}
+
+#letter_text {
+  transform:rotate(-0.25deg);
+    -ms-transform:rotate(-0.25deg); /* IE 9 */
+    -webkit-transform:rotate(-0.25deg); /* Safari and Chrome */
+  opacity:0.9;
+  font-size: 35px;
+  position:absolute;
+  left:15%;
+  top:5%;
+  width:70%;
+  z-index:3;
+}
+
+nav ul ul {
+  display: none;
+}
+
+
+nav ul li:hover > ul {
+    display: block;
+  }
+
+  nav ul  {  
+  list-style: none;
+  position: relative;
+   z-index:1000;
+}
+
+nav li {
+  padding-bottom:10px;
+}
+#links a
+{
+    font-family: "Futura";
+    width:100%;
+    height:100%;
+    top:0%;
+    z-index:1000;
+    top:0;
+    position:relative;  
+    color:black;
+    background-color:YellowGreen;
+    font-size:5em;
+    font-weight:bold;
+    overflow-y:scroll;
+}
+
+a.one:link {opacity:1; text-decoration: none; }
+a.one:hover {opacity:0.8; text-decoration: none; }
+
+a.two:link {opacity:0.7; text-decoration: none; }
+a.two:hover {opacity:1.0; text-decoration: none;}
+
+iframe{
+  position:fixed;
+  border:none; 
+  opacity:1;
+  z-index:0;
+  height:100%;
+  width:100%;
+}
+
+.holder{
+   background-color:YellowGreen;
+  z-index:999;
+  width:480px;
+  height:640px;
+
+}
+
+.imagemask{ 
+  width:100%;
+  height:100%;
+   opacity:1;
+}
+
+.zigzag{
+   z-index:1000;
+  height:100%;
+  width:100%;
+  background-color:YellowGreen;
+
+}
