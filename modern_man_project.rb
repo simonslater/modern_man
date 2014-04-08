@@ -1,8 +1,12 @@
 require "sinatra"
-require 'dotenv' if development?
-Dotenv.load".env" if development?
-require "sinatra/activerecord"
+
+if development?
+require 'dotenv' 
+Dotenv.load".env" 
 require "shotgun"
+end
+
+require "sinatra/activerecord"
 require "nokogiri"
 require "mechanize"
 require "engtagger"
