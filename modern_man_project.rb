@@ -5,6 +5,7 @@ require 'dotenv'
 Dotenv.load".env" 
 require "shotgun"
 end
+require 'active_record'
 require "sinatra/activerecord"
 require "nokogiri"
 require "mechanize"
