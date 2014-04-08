@@ -1,5 +1,3 @@
-set :database, "sqlite3:///modern_man.db"
-
 class Question < ActiveRecord::Base
 	has_many :responses
 	validates_uniqueness_of :tweet
