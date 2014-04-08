@@ -28,9 +28,9 @@ end
 
 def config_twitter
 	Twitter::REST::Client.new do |config|
-    config.consumer_key        = "eyH3dv5LMgUXjkqOosVMAw"
-    config.consumer_secret     = "BiNvYU9CCHh9JtXasxYulXRCkxS16sj3KzrqL2UCg"
-    config.access_token        = "2412955033-zt1mSoFXZuBLU9A40SIocguwnGQzcEVPAGTLyqf"
-    config.access_token_secret = "qpoU9jl9NY8nqC738L7VH2guxcqlasmHjIOphwMjNuy2c"
+    config.consumer_key        = ENV['consumer_key']
+    config.consumer_secret     = ENV['consumer_secret']
+    config.access_token        = ENV['oauth_token']
+    config.access_token_secret = ENV['oauth_token_secret']
     end
 end
