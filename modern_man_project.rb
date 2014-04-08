@@ -1,6 +1,6 @@
 require "sinatra"
-#require 'dotenv'
-#Dotenv.load".env.local"
+require 'dotenv'
+Dotenv.load".env"
 require "sinatra/activerecord"
 require "shotgun"
 require "nokogiri"
@@ -13,7 +13,7 @@ require "twitter"
 require "tweetstream"
 require "imgkit"
 require "tempfile"
-require './environments'
+require "./environments"
 Dir[Dir.pwd + "/helpers/*.rb"].each {|file| require file}
 require './models/models.rb'
 enable :sessions

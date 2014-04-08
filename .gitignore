@@ -8,6 +8,5 @@
 /public/tmp*.svg
 
 party.log
-environments.rb
 Gemfile.lock
 .env
