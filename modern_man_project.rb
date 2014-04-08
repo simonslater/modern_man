@@ -1,6 +1,6 @@
 require "sinatra"
-require 'dotenv'
-Dotenv.load".env"
+#require 'dotenv'
+#Dotenv.load".env"
 require "sinatra/activerecord"
 require "shotgun"
 require "nokogiri"

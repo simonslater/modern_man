@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.1.0"
 gem "sinatra", :require => 'sinatra/base'
 gem "nokogiri"
 gem "mechanize"
@@ -21,7 +22,7 @@ gem "pg"
 end
 
 group :development do
-	gem 'dotenv', :groups => [:development]
+	gem 'dotenv'
 	gem "shotgun"
 	gem "dm-sqlite-adapter"
 	gem 'sqlite3'
