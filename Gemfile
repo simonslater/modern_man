@@ -24,7 +24,7 @@ end
 group :development do
 	gem 'dotenv'
 	gem "shotgun"
-	gem "dm-sqlite-adapter"
+	# gem "dm-sqlite-adapter"
 	gem 'sqlite3'
 	gem 'tux'
 end
