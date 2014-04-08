@@ -17,7 +17,7 @@ require "twitter"
 require "tweetstream"
 require "imgkit"
 require "tempfile"
-require "./environments.rb"
+require "./environments"
 Dir[Dir.pwd + "/helpers/*.rb"].each {|file| require file}
 require './models/models.rb'
 enable :sessions
