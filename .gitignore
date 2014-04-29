@@ -5,6 +5,7 @@
 /modern_man.db
 
 # tempfiles.
+/public/tmp/*.jpg
 
 
 party.log
