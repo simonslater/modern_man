@@ -31,7 +31,7 @@ get '/' do
 
 	#---below: add some new tweets to tweet database
 	@client = config_twitter
-	@twit_questions = twitter_search(@client, "modern", 100)
+	@twit_questions = twitter_search(@client, "modern", 5)
 	
 	@twit_questions.each do |q| 
 		add= Tweet.new(tweet: "#{q.text}")

@@ -11,6 +11,10 @@ body {
 
 	 }
 
+.hidden {
+  display: none;
+}
+
 .hi {    
     font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
     transform:rotate(3deg);
