@@ -46,18 +46,16 @@ end
 
 get '/two' do
 	@name = 'Modern Thoughts'
+	@style_sheet = "css/letter.css" 
 	@content = letter_to_editor(letter_to_editor(grab_text_random(),grab_text_random()), letter_to_editor(grab_text_random(),grab_text_random()))
 	@editor_image = grab_image("portrait+of+a+moron")
-	@links = page_sections
-	@source = url_tracker
 	
 	erb :from_editor
 end
 
 get '/three' do
 	@name = 'art'
-	@links = page_sections
-	@source = url_tracker
+	@style_sheet = "css/art.css" 
 	@mask = splice_svg("public/masks/rileyguston.svg", "public/masks/step2.svg")
 	@background_image = grab_image("https://www.moma.org/collection/browse_results.php?criteria=O%3ADE%3AI%3A5%7CG%3AHI%3AE%3A1&template_id=6&sort_order=2&results_per_page=160&page_number=1&UC=")
 	@background_image2 = grab_image(hot_trends[rand(hot_trends.size-1)])
@@ -66,9 +64,8 @@ get '/three' do
 end
 
 get '/four' do
+	@style_sheet = "css/poetry.css" 
 	@name = 'poetry'
-	@links = page_sections
-	@source = url_tracker
 	@content = poetry(grab_text("http://www.poemhunter.com/poem/the-road-not-taken/", true, 'div[class^="KonaBody"]'),
 		 			  grab_text("http://theglobalherald.com/transcript-of-charlie-sheen-meltdown-on-alex-jones-radio-show/12032/"))
 	@author = "Percy Napoli"
@@ -78,16 +75,14 @@ end
 
 get '/five' do
 	@name = 'sound' 
-	@links = page_sections
-	@source = url_tracker
+	@style_sheet = "css/art.css" 
 	@content = "#{grab_text_random().gsub(/\s+/, ' ')[0..rand(800)]}"
 
 	erb :sound
 end
 
 get '/six' do
-	@source = url_tracker
-	@links = page_sections
+	@style_sheet = "css/interview.css" 
 	@name = 'interview'
 	@client = config_twitter
 	@interviewer ="KimKardashian"
@@ -119,7 +114,7 @@ post '/post_six' do
 end
 
 get '/eight' do
-	@source = url_tracker
+	@style_sheet = "css/art.css" 
 	@name = 'sex'
 	@content = sex("http://newyork.craigslist.org/cas/")
 

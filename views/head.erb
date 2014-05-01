@@ -1,0 +1,24 @@
+<!doctype html>
+<html class="no-js" lang="en">
+ <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href=<%= @style_sheet %>/>
+    <title>Modern Man Manual | <%=@name%></title>   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+    	$(document).ready(function(){
+            if(self==top){
+            $("#links").removeClass("hidden");
+            }
+    	});
+    </script>
+</head>
+<body>
+	
+<%=url_tracker%>
+
+<div id='links' class='hidden'>
+<%=page_sections_drop%>
+</div>
+

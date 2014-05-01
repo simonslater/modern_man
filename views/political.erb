@@ -1,14 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="en">
- <head>
-     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="stylesheet" href="css/cover.css" />
-    <title>Modern Man's Manual | <%=@name%></title>   
-</head>
-<body>
-<center><h2><%=@name.upcase%></center></h2><br>
-	
+<%= erb :head %>
+
 <% @stream.each do|thought|%>
 <%=  "#{thought}<br><br>" %>
 <%end%>
