@@ -56,10 +56,6 @@ def grab_link(url)
 	urls.map!{|val| val[val.index("http://")..-1]}
 end
 
-def twitter_search(client, search_term, count)
-	client.search(search_term, :count => 10, :result_type => "recent").take(count)
-end
-
 def temp_file(data, name = "temp", extension=".txt", directory="public/tmp")
 	temp = Tempfile.new([name, extension], directory)
 	temp.write(data)

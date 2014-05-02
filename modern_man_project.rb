@@ -18,9 +18,27 @@ require "tweetstream"
 require "imgkit"
 require "tempfile"
 require "./environments"
+
 Dir[Dir.pwd + "/helpers/*.rb"].each {|file| require file}
 require './models/models.rb'
 enable :sessions
+
+#put twitter database stuff in background thread
+tweet_shredding = Thread.new do 
+					#destroy old records 
+					Tweet.destroy_all(["created_at < ?", 20.days.ago])	
+end
+tweet_log = Thread.new do
+					@client = config_twitter
+					@twit_questions = twitter_search(@client, "modern", 50)
+					@twit_questions.each do |q| 
+					add= Tweet.new(tweet: "#{q.text}")
+  					add.save 
+  					end
+end
+
+tweet_shredding.join 
+tweet_log.join
 
 get '/' do
 	@name = 'cover'
@@ -30,14 +48,7 @@ get '/' do
 	@links = page_sections
 
 	#---below: add some new tweets to tweet database
-	@client = config_twitter
-	@twit_questions = twitter_search(@client, "modern", 5)
 	
-	@twit_questions.each do |q| 
-		add= Tweet.new(tweet: "#{q.text}")
-  		add.save 
-  	end
-
 	#----get tweets
 	@tweets = Tweet.all.order(id: :desc)
 

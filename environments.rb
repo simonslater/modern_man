@@ -34,3 +34,7 @@ def config_twitter
     config.access_token_secret = ENV['oauth_token_secret']
     end
 end
+
+def twitter_search(client, search_term, count)
+  client.search(search_term, :count => 10, :result_type => "recent").take(count)
+end
