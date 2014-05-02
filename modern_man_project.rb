@@ -29,10 +29,6 @@ get '/' do
 	@cover_image = grab_image(hot_trends[rand(hot_trends.size-1)]) 
 	@title = "Modern Man Manual" * 45
 	@links = page_sections
-
-	#---below: add some new tweets to tweet database
-	
-	#----get tweets
 	@tweets = Tweet.all.order(id: :desc)
 
   	erb :cover
