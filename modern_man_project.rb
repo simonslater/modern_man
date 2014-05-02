@@ -17,18 +17,17 @@ require "twitter"
 require "tweetstream"
 require "imgkit"
 require "tempfile"
-require "./environments"
-
 Dir[Dir.pwd + "/helpers/*.rb"].each {|file| require file}
 require './models/models.rb'
 enable :sessions
 
-#put twitter database stuff in background thread
+#put twitter database stuff in background thread(hey I know its ugly fuck trying to figure out)
 tweet_shredding = Thread.new do 
 					#destroy old records 
 					Tweet.destroy_all(["created_at < ?", 20.days.ago])	
 end
 tweet_log = Thread.new do
+					#logs tweets to db for cover
 					@client = config_twitter
 					@twit_questions = twitter_search(@client, "modern", 50)
 					@twit_questions.each do |q| 
@@ -37,8 +36,21 @@ tweet_log = Thread.new do
   					end
 end
 
+interview_log = Thread.new do
+				@twit_questions = twitter_search(@client, "from:#{@interviewer} ?", 20)
+				@questions = Question.all
+
+				#add questions to database
+				@twit_questions.each do |q| 
+		 		add= Question.new(interviewer: "#{q.user.name}", tweet: "#{q.text}")
+				# Save it to the database
+  		 		add.save 
+  	end
+end
+
 tweet_shredding.join 
 tweet_log.join
+interview_log.join
 
 get '/' do
 	@name = 'cover'
@@ -97,15 +109,6 @@ get '/six' do
 	@name = 'interview'
 	@client = config_twitter
 	@interviewer ="KimKardashian"
-	@twit_questions = twitter_search(@client, "from:#{@interviewer} ?", 20)
-	@questions = Question.all
-
-	#add questions to database
-	@twit_questions.each do |q| 
-		 add= Question.new(interviewer: "#{q.user.name}", tweet: "#{q.text}")
-		# Save it to the database
-  		 add.save 
-  	end
 
 	erb :interview
 end
