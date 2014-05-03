@@ -21,13 +21,13 @@ def mad_lib(text)
 	lib_words.reject(&:empty?).join(" ")
 end
 
-def sex(url)
+def coition(url)
 	#takes casual encounters listings in New York and uses the text to search google for images
-	search_text = grab_text(url, false, 'a').split("-")
+	search_text = grab_text(url, false, 'a').split(".")
 	search_text = search_text[rand(search_text.size-1)]
-	image_search =  search_text.gsub(" ", "+")
+	image_search =  search_text.gsub(/[^a-zA-Z0-9]/, "+")
 	image = grab_image(image_search)
-	image == "" ?  sex(url) : [image, search_text] 
+	image == "" ?  coition(url) : [image, search_text] 
 end
 
 

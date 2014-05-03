@@ -2,7 +2,7 @@ helpers do
 
 def page_sections
 	#lays out page section links randomly on front page
-	links = {"M0dern th0ughts"=>"/two", "aRt"=>"/three", "Poetry"=>"/four", "soUnd"=>"/five", "inTerview"=>"/six", "seX"=>"/eight"}
+	links = {"M0dern th0ughts"=>"/two", "aRt"=>"/three", "Poetry"=>"/four", "soUnd"=>"/five", "inTerview"=>"/six", "coition"=>"/eight"}
 	 alignments = ["left", "right", "center"]
 
     Hash[links.to_a.sample(links.length)].map{|k,v| "<p style='text-align:#{alignments[rand(3)]}'><a class='two' href=#{v}>#{k}</a></p>"}
@@ -11,7 +11,7 @@ end
 
 def page_sections_drop
 	#lays out page section links randomly on front page
-	links = {"M0dern th0ughts"=>"/two", "aRt"=>"/three", "Poetry"=>"/four", "sounD"=>"/five", "inTerview"=>"/six", "seX"=>"/eight", "coVER"=>"/"}
+	links = {"M0dern th0ughts"=>"/two", "aRt"=>"/three", "Poetry"=>"/four", "sounD"=>"/five", "inTerview"=>"/six", "coition"=>"/eight", "coVER"=>"/"}
 	 alignments = ["left", "right", "center"]
 
  menu= "<nav> <ul><li><a href='#'' class='two'>links</a><ul>"

@@ -105,10 +105,10 @@ end
 
 get '/eight' do
 	@style_sheet = "css/art.css" 
-	@name = 'sex'
-	@content = sex("http://newyork.craigslist.org/cas/")
+	@name = 'coition'
+	@content = coition("http://newyork.backpage.com/dating/")
 
-	erb :sex
+	erb :coition
 end
 
 #put twitter database stuff in background thread(hey I know too cheap to pay for dynos
@@ -120,7 +120,7 @@ end
 tweet_log = Thread.new do
 					#add tweets to db for cover
 					client = config_twitter
-					twit_questions = twitter_search(client, "modern", 50)
+					twit_questions = twitter_search(client, "modern", 10)
 					twit_questions.each do |q| 
 					add= Tweet.new(tweet: "#{q.text}")
   					add.save 
