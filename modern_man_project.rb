@@ -5,6 +5,7 @@ require 'dotenv'
 Dotenv.load".env" 
 require "shotgun"
 end
+
 require 'active_record'
 require "sinatra/activerecord"
 require "nokogiri"
@@ -75,16 +76,8 @@ get '/six' do
 	@style_sheet = "css/interview.css" 
 	@name = 'interview'
 	@client = config_twitter
-	@interviewer ="KimKardashian"
-	@twit_questions = twitter_search(@client, "from:#{@interviewer} ?", 5)
+	$interviewer ="KimKardashian"
 	@questions = Question.all
-
-	#add questions to database
-	@twit_questions.each do |q| 
-		 add= Question.new(interviewer: "#{q.user.name}", tweet: "#{q.text}")
-		# Save it to the database
-  		 add.save 
-  	end
 
 	erb :interview
 end
@@ -110,22 +103,5 @@ get '/eight' do
 
 	erb :coition
 end
+ 
 
-#put twitter database stuff in background thread(hey I know too cheap to pay for dynos
-												# will make a scheduled task soon promise)
-tweet_shredding = Thread.new do 
-					#destroy old records 
-					Tweet.destroy_all(["created_at < ?", 10.days.ago])	
-end
-tweet_log = Thread.new do
-					#add tweets to db for cover
-					client = config_twitter
-					twit_questions = twitter_search(client, "modern", 10)
-					twit_questions.each do |q| 
-					add= Tweet.new(tweet: "#{q.text}")
-  					add.save 
-  					end
-end
-
-tweet_shredding.join 
-tweet_log.join
