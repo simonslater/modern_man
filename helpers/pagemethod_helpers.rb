@@ -1,26 +1,4 @@
 helpers do
-def get_a_recipe
-	#gets a daily recipe from allrecipes.com 
-	links = grab_link("http://allrecipes.com/recipes/daily.aspx")
-	links.reject!{|val| val.include?("/recipe/") != true}
-	recipe_link = links[rand(links.size-1)]
-	recipe = grab_text(recipe_link,false,"//div[@itemprop = 'recipeInstructions']").gsub("Kitchen-Friendly View", "")
-end
-
-def mad_lib(text)
-	tagger = EngTagger.new #for tagging words
-	#create texfields
-	lib_words = text.split(" ")
-	
-	lib_words.each_index do |index|
-	 if index%3 == 0 && lib_words[index].size > 3
-	 	tagged_words = tagger.add_tags(lib_words[index], true)
-	 	lib_words[index] = "<input type='text' size='#{tagged_words[/<.+?>/].size}' name='#{index}' style='border:1px dotted gray;' placeholder='#{tagged_words[/<.+?>/]}'>"
-	 end
-	end
-	lib_words.reject(&:empty?).join(" ")
-end
-
 def coition(url)
 	#takes casual encounters listings in New York and uses the text to search google for images
 	search_text = grab_text(url, false, 'a').split(".")
@@ -29,7 +7,6 @@ def coition(url)
 	image = grab_image(image_search)
 	image == "" ?  coition(url) : [image, search_text] 
 end
-
 
 def poetry(form, words)
 	tagger = EngTagger.new
