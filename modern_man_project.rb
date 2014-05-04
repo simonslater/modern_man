@@ -71,7 +71,7 @@ get '/six' do
 	@style_sheet = "css/interview.css" 
 	@name = 'interview'
 	@client = config_twitter
-	$interviewer ="KimKardashian"
+	@interviewer ="KimKardashian"
 	@questions = Question.all
 	erb :interview
 end
