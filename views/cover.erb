@@ -4,12 +4,14 @@
      <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/cover.css" />
+    <script src="javascripts/synth.js"></script>
+    <script src="javascripts/browser_detection.js"></script>
 
     <title>Modern Man Manual | <%=@name%></title>   
 </head>
 
 <body background = <%=@background_image%>>  
-
+<script language = "javascript">BrowserDetection();</script>
 <div id='image'>
 	<section id ='table'>
 		<div id ='table_row'><%="<div id='table_cell'></div><div id='table_cell'><div class='square'></div></div>"*4%></div>
