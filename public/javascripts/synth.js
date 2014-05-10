@@ -1,5 +1,5 @@
 function cynthia_cizer(speed, wave, text){
-var audio = new window.webkitAudioContext()
+var audio = new window.webkitAudioContext();
        
         position = 0
         

@@ -1,5 +1,4 @@
 helpers do
-
 def stream_topics(client, topics)
 	client.search(topics, :count => 1000, :result_type => "recent").take(1000).collect do |tweet|
   "#{tweet.user.screen_name}: #{tweet.text}"
