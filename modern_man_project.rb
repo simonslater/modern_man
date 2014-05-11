@@ -26,7 +26,7 @@ enable :sessions
 
 get '/' do
 	@name = 'cover'
-	@background_image = grab_image("http://giphy.com/search/fucked-up/")
+	@background_image = grab_image(hot_trends[rand(hot_trends.size-1)])
 	@cover_image = grab_image(hot_trends[rand(hot_trends.size-1)]) 
 	@title = "Modern Man Manual" * 45
 	@links = page_sections
