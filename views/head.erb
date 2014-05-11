@@ -11,10 +11,13 @@
             if(self==top){
             $("#links").removeClass("hidden");
             }
+            $(".cornsilk").css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));
+            $("body").css("background-color","#"+Math.floor(Math.random()*16777215).toString(16));
     	});
     </script>
 </head>
-<body bgcolor=<%="%06x" % (rand * 0xffffff)%>>
+
+<body>
 	
 <%=url_tracker%>
 
