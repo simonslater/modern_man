@@ -22,7 +22,7 @@ end
 def url_tracker
 	session["urls"] == nil ? session["urls"] = [request.env['HTTP_REFERER']] : session["urls"]<< request.env['HTTP_REFERER']
 	params[:key] == nil ? source = "#{session['urls'][-1]}?key=#{session['urls'].size-2}" : source = "#{session['urls'][params[:key].to_i]}?key=#{params[:key].to_i-1}"
-	"<iframe id='back' style='top: #{rand(-10..10)}px; left: #{rand(-10..10)}px; transform:rotate(#{rand(-10..10)}deg);
+	"<iframe id='back' style='top: #{rand(-50..50)}px; left: #{rand(-50..50)}px; transform:rotate(#{rand(-10..10)}deg);
 																				-ms-transform:rotate(#{rand(-10..10)}deg); /* IE 9 */
 																				-webkit-transform:rotate(#{rand(-10..10)}deg); /* Opera, Chrome, and Safari */' src=#{source}></iframe>" if params[:key] !=0
 end
