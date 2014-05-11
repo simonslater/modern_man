@@ -11,7 +11,11 @@
 </head>
 
 <body background = <%=@background_image%>>  
-<script language = "javascript">BrowserDetection();</script>
+<script language = "javascript">
+	if(self==top){
+		BrowserDetection();
+	}
+</script>
 <div id='image'>
 	<section id ='table'>
 		<div id ='table_row'><%="<div id='table_cell'></div><div id='table_cell'><div class='square'></div></div>"*4%></div>
