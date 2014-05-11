@@ -3,7 +3,7 @@
 <center><div class="hi"><div class="cornsilk"><%=@name.upcase%></div></div></br></center>
 <div class="cornsilk" style="height:640px; width:480px">
 
-	<%= "<div class='holder' style='background-image: url(#{@background_image});'>"%>
+	<%= "<div class='holder' style='background-image: url(#{@background_image}); background-size:#{rand(20..640)}px #{rand(20..640)}px;'>"%>
 	<%="<img class='imagemask' style='height:100%; 
 									  width:100%; mask: url(#{@mask}#mask) top left cover;
   									 -webkit-mask: url(#{@mask}) top left / cover;
